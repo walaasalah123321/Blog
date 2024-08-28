@@ -2,16 +2,18 @@
 
 use App\Models\Setting;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 
 App::setLocale('en');
 
-Route::get('/', function () {
+Route::get('/dash', function () {
 
     return view('dashboard.index');
 });
-Route::group(["prefix"=>"admin/","as"=>'admin.'],function(){
+Route::group(["prefix"=>"admin/","as"=>'admin.',"middleware"=>'auth'],function(){
 
     Route::group(["prefix"=>"setting","as"=>"setting."],function(){
         Route::get("/",function(){
@@ -22,3 +24,6 @@ Route::group(["prefix"=>"admin/","as"=>'admin.'],function(){
        
     });
 });
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');

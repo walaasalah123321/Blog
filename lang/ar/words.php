@@ -20,6 +20,7 @@ return [
     "EnterAddress"=>"ادخل  العنوان",
     "EnterTitle"=>"ادخل الاسم    ",
     "title"=>"التايتل",
+    "Logout"=>"الخروج"
 
 
 

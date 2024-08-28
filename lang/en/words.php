@@ -18,5 +18,6 @@ return [
     "EnterAddress"=>"Enter Address",
     "address"=>"Address",
     "title"=>"title",
+    "Logout"=>"Logout"
 ];
 
